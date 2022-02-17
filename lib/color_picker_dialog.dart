@@ -97,7 +97,13 @@ class _ColorPickerDialogState extends State<ColorPickerDialog> {
         child: ColorPicker(
           displayThumbColor: true,
           enableAlpha: false,
-          showLabel: widget.shouldShowLabel,
+          labelTypes: widget.shouldShowLabel
+              ? const [
+                  ColorLabelType.rgb,
+                  ColorLabelType.hsv,
+                  ColorLabelType.hsl
+                ]
+              : [],
           onColorChanged: (Color color) {
             setState(() {
               pickedColor = color;
